@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXTextArea?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="413.0" prefWidth="415.0" style="-fx-background-color: #222; -fx-background-radius: 28" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edencoding.controllers.DragFileIntoJavaFX">
-    <JFXTextArea  fx:id="textArea" layoutX="9.0" style="-fx-text-fill: WHITE; -fx-border-style: dashed; -fx-border-color: #555; -fx-border-width: 5" layoutY="79.0" prefHeight="263.0" prefWidth="401.0" />
+<AnchorPane prefHeight="413.0" prefWidth="415.0" style="-fx-background-color: #222; -fx-background-radius: 28"
+            xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.edencoding.controllers.DragFileIntoJavaFX">
+    <JFXTextArea fx:id="textArea" layoutX="13.0" layoutY="79.0" prefHeight="263.0" prefWidth="392.0"
+                 style="-fx-text-fill: WHITE; -fx-border-style: dashed; -fx-border-color: #555; -fx-border-width: 5; -fx-border-radius: 10;"/>
 
-    <Pane fx:id="titlePane" layoutX="29.0" prefHeight="32.0" prefWidth="372.0">
-        <children>
-            <ImageView fx:id="btnMinimize" fitHeight="16.0" fitWidth="16.0" layoutX="324.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                <image>
-                    <Image url="@../images/hide.png" />
-                </image>
-            </ImageView>
-            <ImageView fx:id="btnClose" fitHeight="16.0" fitWidth="16.0" layoutX="345.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                <image>
-                    <Image url="@../images/close.png" />
-                </image>
-            </ImageView>
-            <Label layoutX="29.0" layoutY="12.0" text="Криптоанализатор" textAlignment="CENTER" textFill="WHITE">
-                <font>
-                    <Font size="13.0" />
-                </font>
-            </Label>
-            <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="1.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
-                <image>
-                    <Image url="@../images/EdenCodingIcon.png" />
-                </image>
-            </ImageView>
-        </children>
-    </Pane>
-
-        <Label layoutX="66.0" layoutY="31.0" prefHeight="41.0" prefWidth="306.0" text="Перетащите сюда ваш текстовый файл" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+    <Pane fx:id="titlePane" layoutX="27.0" layoutY="3.0" prefHeight="32.0" prefWidth="372.0">
+        <ImageView fx:id="btnMinimize" fitHeight="16.0" fitWidth="16.0" layoutX="324.0" layoutY="12.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <Image url="@../images/hide.png"/>
+        </ImageView>
+        <ImageView fx:id="btnClose" fitHeight="16.0" fitWidth="16.0" layoutX="345.0" layoutY="12.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <Image url="@../images/close.png"/>
+        </ImageView>
+        <Label layoutX="29.0" layoutY="12.0" text="Криптоанализатор" textAlignment="CENTER" textFill="WHITE">
             <font>
-                <Font name="System Bold" size="12.0" />
+                <Font size="13.0"/>
             </font>
         </Label>
-    <Pane fx:id="dropInstructions" layoutX="21.0" layoutY="76.0" mouseTransparent="true" prefHeight="256.0" prefWidth="372.0" style="-fx-background-color: #2f2f31;" visible="false">
-            <ImageView layoutX="177.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
-                <Image url="@../images/download.png" />
-            </ImageView>
-            <Label layoutX="104.0" layoutY="73.0" prefHeight="74.0" prefWidth="177.0" text="Кидай файл мать твою, ща прочтем и зашифруем" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
+        <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="1.0" layoutY="2.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <Image url="@../images/EdenCodingIcon.png"/>
+        </ImageView>
+    </Pane>
 
-        </Pane>
+    <Label layoutX="50.0" layoutY="35.0" prefHeight="41.0" prefWidth="322.0" text="Перетащите сюда ваш текстовый файл"
+           textAlignment="CENTER" textFill="WHITE" wrapText="true">
+        <font>
+            <Font name="System Bold" size="16.0"/>
+        </font>
+    </Label>
+    <Pane fx:id="dropInstructions" layoutX="22.0" layoutY="84.0" mouseTransparent="true" prefHeight="255.0"
+          prefWidth="375.0" style="-fx-background-color: #2f2f31; -fx-background-radius:15" visible="false">
+        <ImageView layoutX="170.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../images/download.png"/>
+        </ImageView>
+        <Label layoutX="100.0" layoutY="80.0" prefHeight="74.0" prefWidth="177.0"
+               text="Кидай файл мать твою, ща прочтем и зашифруем" textAlignment="CENTER" textFill="WHITE"
+               wrapText="true"/>
+
+    </Pane>
 
 </AnchorPane>
