@@ -18,14 +18,14 @@ public class App extends Application {
         stage.getIcons().add(new Image(getClass().getResourceAsStream("images/EdenCodingIcon.png")));
         stage.setTitle("CryptoANALizator");
 
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/CryptoAnalizator.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/dragInExample.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         scene.setFill(Color.TRANSPARENT);
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-        ((DragFileIntoJavaFX) fxmlLoader.getController()).init(stage);
+//        ((DragFileIntoJavaFX) fxmlLoader.getController()).init(stage);
     }
 
     public static void main(String[] args) {
