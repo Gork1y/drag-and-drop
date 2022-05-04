@@ -1,33 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox prefHeight="409.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" >
-    <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #3d3d5b;">
-        <Label text="Перетащите сюда ваш текстовый файл" textAlignment="CENTER" textFill="WHITE" wrapText="true">
-         <font>
-            <Font size="16.0" />
-         </font>
+<VBox xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edencoding.controllers.DragFileIntoJavaFX">
+    <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: white;">
+        <Label text="Drag Something from your Desktop" textAlignment="CENTER" wrapText="true">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
         </Label>
     </HBox>
     <StackPane BorderPane.alignment="CENTER">
-        <Pane fx:id="dropInstructions" mouseTransparent="true" prefHeight="300.0" prefWidth="300.0" style="-fx-background-color: #3d3d5b;" visible="false">
+        <TextArea fx:id="textArea" prefHeight="200.0" prefWidth="200.0" />
+        <Pane fx:id="dropInstructions" mouseTransparent="true" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #F3F9F3;" visible="false">
             <ImageView layoutX="85.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
                 <Image url="@../images/download.png" />
             </ImageView>
-         <Label layoutX="57.0" layoutY="91.0" prefHeight="123.0" prefWidth="193.0" text="Кидай файл мать твою, ща прочтем и зашифруем" textAlignment="CENTER" wrapText="true" />
+            <Label layoutX="57.0" layoutY="91.0" prefHeight="65.0" prefWidth="87.0" text="Drop text file here to view content" textAlignment="CENTER" wrapText="true" />
         </Pane>
-        <TextArea fx:id="textArea" prefHeight="200.0" prefWidth="200.0" />
     </StackPane>
-   <JFXButton alignment="CENTER" contentDisplay="CENTER" layoutY="100.0" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #333;" text="Зашифровать" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" />
 </VBox>
