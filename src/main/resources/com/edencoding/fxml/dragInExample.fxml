@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="413.0" prefWidth="415.0" style="-fx-background-color: #222; -fx-background-radius: 28" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edencoding.controllers.DragFileIntoJavaFX">
-    <JFXTextArea fx:id="textArea" layoutX="9.0" layoutY="79.0" prefHeight="263.0" prefWidth="401.0" />
+    <JFXTextArea  fx:id="textArea" layoutX="9.0" style="-fx-text-fill: WHITE; -fx-border-style: dashed; -fx-border-color: #555; -fx-border-width: 5" layoutY="79.0" prefHeight="263.0" prefWidth="401.0" />
 
     <Pane fx:id="titlePane" layoutX="29.0" prefHeight="32.0" prefWidth="372.0">
         <children>
