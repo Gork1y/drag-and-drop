@@ -1,5 +1,6 @@
 package com.edencoding;
 
+import com.edencoding.controllers.DragFileIntoJavaFX;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -7,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
 import java.io.IOException;
 
 public class App extends Application {
@@ -24,7 +26,7 @@ public class App extends Application {
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-//        ((DragFileIntoJavaFX) fxmlLoader.getController()).init(stage);
+        ((DragFileIntoJavaFX) fxmlLoader.getController()).init(stage);
     }
 
     public static void main(String[] args) {
