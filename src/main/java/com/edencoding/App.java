@@ -1,6 +1,5 @@
 package com.edencoding;
 
-import com.edencoding.controllers.DragFileIntoJavaFX;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -14,6 +13,7 @@ import java.io.IOException;
 public class App extends Application {
 
     @Override
+    @SuppressWarnings("squid:S125")
     public void start(Stage stage) throws IOException {
         stage.getIcons().add(new Image(getClass().getResourceAsStream("images/EdenCodingIcon.png")));
         stage.setTitle("CryptoANALizator");
