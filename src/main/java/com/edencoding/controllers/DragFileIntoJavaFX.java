@@ -3,6 +3,7 @@ package com.edencoding.controllers;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.Dragboard;
@@ -13,7 +14,11 @@ import javafx.stage.Stage;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Stream;
 
@@ -27,11 +32,15 @@ public class DragFileIntoJavaFX {
     private Pane titlePane;
     @FXML
     private ImageView btnMinimize, btnClose;
+    @FXML
+    private Button encrypt, decipher;
     private double x, y;
 
 
     public void initialize() {
         makeTextAreaDragTarget(textArea);
+
+        makeDecipher();
     }
 
     public void init(Stage stage) {
@@ -46,6 +55,21 @@ public class DragFileIntoJavaFX {
 
         btnClose.setOnMouseClicked(mouseEvent -> stage.close());
         btnMinimize.setOnMouseClicked(mouseEvent -> stage.setIconified(true));
+    }
+
+    public void makeEncrypt(String textFromFile) {
+        encrypt.setOnMouseClicked(mouseEvent -> {
+            StringBuilder builder = new StringBuilder();
+            for (char c : textFromFile.toCharArray()) {
+                char temp = (char) (c + 1);
+                builder.append(temp);
+            }
+            textArea.setText(builder.toString());
+        });
+    }
+
+    public void makeDecipher() {
+        decipher.setOnMouseClicked(mouseEvent -> textArea.setText("РАСШИФРОВАНО"));
     }
 
     private void makeTextAreaDragTarget(Node node) {
@@ -103,6 +127,7 @@ public class DragFileIntoJavaFX {
         loadFileTask.setOnSucceeded(workerStateEvent -> {
             try {
                 textArea.setText(loadFileTask.get());
+                makeEncrypt(textArea.getText());
             } catch (InterruptedException | ExecutionException e) {
                 textArea.setText("Не могу загрузить файл:\n " + fileToLoad.getAbsolutePath());
             }

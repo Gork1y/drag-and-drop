@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXHamburger?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -41,7 +42,8 @@
         <Label layoutX="100.0" layoutY="80.0" prefHeight="74.0" prefWidth="177.0" text="Кидай файл мать твою, ща прочтем и зашифруем" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
 
     </Pane>
-   <JFXButton fx:id="encrypt" layoutX="22.0" layoutY="349.0" prefHeight="45.0" prefWidth="177.0" text="Зашифровать" textFill="WHITE" />
-   <JFXButton fx:id="decipher" layoutX="211.0" layoutY="349.0" prefHeight="45.0" prefWidth="177.0" text="Расшифровать" textFill="WHITE" />
+   <JFXButton fx:id="encrypt" layoutX="22.0" layoutY="349.0" prefHeight="45.0" prefWidth="146.0" text="Зашифровать" textFill="WHITE" />
+   <JFXButton fx:id="decipher" layoutX="242.0" layoutY="349.0" prefHeight="45.0" prefWidth="146.0" text="Расшифровать" textFill="WHITE" />
+   <JFXHamburger layoutX="189.0" layoutY="362.0" />
 
 </AnchorPane>
