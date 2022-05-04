@@ -19,7 +19,7 @@ public class App extends Application {
         stage.getIcons().add(new Image(getClass().getResourceAsStream("images/EdenCodingIcon.png")));
         stage.setTitle("CryptoANALizator");
 
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/dragInExample.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("fxml/CryptoAnalizator.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         scene.setFill(Color.TRANSPARENT);
         stage.initStyle(StageStyle.TRANSPARENT);
