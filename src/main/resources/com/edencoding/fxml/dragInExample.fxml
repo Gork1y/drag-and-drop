@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,19 +10,17 @@
 
 <AnchorPane prefHeight="322.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edencoding.controllers.DragFileIntoJavaFX">
 
-        <Label text="Drag Something from your Desktop" textAlignment="CENTER" wrapText="true">
+        <Label text="Перетащите сюда ваш текстовый файл" textAlignment="CENTER" wrapText="true">
             <font>
                 <Font name="System Bold" size="12.0" />
             </font>
         </Label>
-
-
-        <TextArea fx:id="textArea" layoutY="54.0" prefHeight="220.0" prefWidth="200.0" />
         <Pane fx:id="dropInstructions" mouseTransparent="true" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #F3F9F3;" visible="false">
             <ImageView layoutX="85.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
                 <Image url="@../images/download.png" />
             </ImageView>
             <Label layoutX="57.0" layoutY="91.0" prefHeight="65.0" prefWidth="87.0" text="Drop text file here to view content" textAlignment="CENTER" wrapText="true" />
         </Pane>
+   <JFXTextArea fx:id="textArea" layoutY="61.0" prefHeight="185.0" prefWidth="233.0" />
 
 </AnchorPane>
