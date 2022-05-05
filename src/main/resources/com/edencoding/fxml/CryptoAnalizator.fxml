@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXRippler?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="413.0" prefWidth="415.0" style="-fx-background-color: #222; -fx-background-radius: 28" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edencoding.controllers.DragFileIntoJavaFX">
+<AnchorPane prefHeight="420.0" prefWidth="420.0" style="-fx-background-color: #222; -fx-background-radius: 28" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edencoding.controllers.DragFileIntoJavaFX">
     <JFXTextArea fx:id="textArea" focusColor="#c62516" layoutX="13.0" layoutY="79.0" prefHeight="263.0" prefWidth="392.0" style="-fx-text-fill: WHITE; -fx-border-style: dashed; -fx-border-color: #555; -fx-border-width: 5; -fx-border-radius: 10;" />
 
     <Pane fx:id="titlePane" layoutX="27.0" layoutY="3.0" prefHeight="32.0" prefWidth="372.0">
@@ -42,8 +42,11 @@
         <Label layoutX="100.0" layoutY="80.0" prefHeight="74.0" prefWidth="177.0" text="Кидай файл мать твою, ща прочтем и зашифруем" textAlignment="CENTER" textFill="WHITE" wrapText="true" />
 
     </Pane>
-   <JFXButton fx:id="encrypt" layoutX="22.0" layoutY="349.0" prefHeight="45.0" prefWidth="146.0" text="Зашифровать" textFill="WHITE" />
-   <JFXButton fx:id="decipher" layoutX="242.0" layoutY="349.0" prefHeight="45.0" prefWidth="146.0" text="Расшифровать" textFill="WHITE" />
-   <JFXHamburger layoutX="189.0" layoutY="362.0" />
-
+   <JFXButton fx:id="encrypt" layoutX="22.0" layoutY="350.0" prefHeight="45.0" prefWidth="145.0" text="Зашифровать" textFill="WHITE" />
+   <JFXButton fx:id="decipher" layoutX="245.0" layoutY="350.0" prefHeight="45.0" prefWidth="145.0" text="Расшифровать" textFill="WHITE" />
+    <JFXRippler fx:id="keyRipper" layoutX="180.0" layoutY="345.0" maskType="RECT" ripplerFill="#a5b5b9">
+   <ImageView>
+    <Image url="@../images/key-64.png" />
+   </ImageView>
+    </JFXRippler>
 </AnchorPane>
