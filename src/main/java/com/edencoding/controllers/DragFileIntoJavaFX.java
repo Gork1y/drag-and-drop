@@ -1,14 +1,22 @@
 package com.edencoding.controllers;
 
+import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.JFXPopup;
+import com.jfoenix.controls.JFXRippler;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.BufferedReader;
@@ -28,6 +36,8 @@ public class DragFileIntoJavaFX {
     public TextArea textArea;
     @FXML
     public Pane dropInstructions;
+    @FXML
+    public JFXRippler keyRippler;
     @FXML
     private Pane titlePane;
     @FXML
@@ -55,6 +65,16 @@ public class DragFileIntoJavaFX {
 
         btnClose.setOnMouseClicked(mouseEvent -> stage.close());
         btnMinimize.setOnMouseClicked(mouseEvent -> stage.setIconified(true));
+    }
+
+    public void getKeyIntextArea(int keyFromUser) {
+keyRippler.setOnMouseClicked(mouseEvent -> {
+
+
+    System.out.println(keyFromUser);
+});
+
+
     }
 
     public void makeEncrypt(String textFromFile) {
@@ -128,6 +148,7 @@ public class DragFileIntoJavaFX {
             try {
                 textArea.setText(loadFileTask.get());
                 makeEncrypt(textArea.getText());
+                getKeyIntextArea(Integer.parseInt(textArea.getText()));
             } catch (InterruptedException | ExecutionException e) {
                 textArea.setText("Не могу загрузить файл:\n " + fileToLoad.getAbsolutePath());
             }
