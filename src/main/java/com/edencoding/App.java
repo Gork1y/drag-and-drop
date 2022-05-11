@@ -12,6 +12,7 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 
 public class App extends Application {
+    //
 
     @Override
     @SuppressWarnings("squid:S125")
