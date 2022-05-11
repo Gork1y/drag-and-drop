@@ -28,6 +28,7 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Stream;
 
@@ -51,7 +52,7 @@ public class DragFileIntoJavaFX {
     public void initialize() {
         makeTextAreaDragTarget(textArea);
 
-        makeDecipher();
+
     }
 
     public void init(Stage stage) {
@@ -79,6 +80,9 @@ public class DragFileIntoJavaFX {
     }
 
     public void makeEncrypt(String textFromFile) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите ключ шифрования: ");
+        int key = scanner.nextInt();
         Cryptoanaliz cryptoanaliz = new Cryptoanaliz(textFromFile.length());
         encrypt.setOnMouseClicked(mouseEvent -> {
             StringBuilder builder = new StringBuilder();
@@ -90,7 +94,7 @@ public class DragFileIntoJavaFX {
         });
     }
 
-    public void makeDecipher() {
+    public void makeDecipher(String textFromFile) {
         decipher.setOnMouseClicked(mouseEvent -> textArea.setText("РАСШИФРОВАНО"));
     }
 
@@ -150,6 +154,7 @@ public class DragFileIntoJavaFX {
             try {
                 textArea.setText(loadFileTask.get());
                 makeEncrypt(textArea.getText());
+                makeDecipher(textArea.getText());
                 getKeyIntextArea(Integer.parseInt(textArea.getText()));
             } catch (InterruptedException | ExecutionException e) {
                 textArea.setText("Не могу загрузить файл:\n " + fileToLoad.getAbsolutePath());
