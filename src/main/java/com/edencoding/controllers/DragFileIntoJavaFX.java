@@ -1,5 +1,6 @@
 package com.edencoding.controllers;
 
+import com.edencoding.utils.Cryptoanaliz;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXPopup;
@@ -68,19 +69,20 @@ public class DragFileIntoJavaFX {
     }
 
     public void getKeyIntextArea(int keyFromUser) {
-keyRippler.setOnMouseClicked(mouseEvent -> {
+        keyRippler.setOnMouseClicked(mouseEvent -> {
 
 
-    System.out.println(keyFromUser);
-});
+            System.out.println(keyFromUser);
+        });
 
 
     }
 
     public void makeEncrypt(String textFromFile) {
+        Cryptoanaliz cryptoanaliz = new Cryptoanaliz(textFromFile.length());
         encrypt.setOnMouseClicked(mouseEvent -> {
             StringBuilder builder = new StringBuilder();
-            for (char c : textFromFile.toCharArray()) {
+            for (char c : cryptoanaliz.encrypt(1,textFromFile.toCharArray())) {
                 char temp = (char) (c + 1);
                 builder.append(temp);
             }
