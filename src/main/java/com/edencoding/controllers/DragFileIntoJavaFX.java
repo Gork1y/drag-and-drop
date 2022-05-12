@@ -1,7 +1,6 @@
 package com.edencoding.controllers;
 
 import com.edencoding.utils.Cryptoanaliz;
-import com.jfoenix.controls.JFXRippler;
 import com.jfoenix.controls.JFXSlider;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
@@ -28,20 +27,20 @@ public class DragFileIntoJavaFX {
     @FXML
     public Pane dropInstructions;
     @FXML
-    public JFXRippler keyRippler;
-    @FXML
     private Pane titlePane;
     @FXML
     private ImageView btnMinimize, btnClose;
     @FXML
-    private Button encrypt, decipher;
+    private Button encrypt, decipher, keyButton;
     @FXML
-    private JFXSlider KeySlider;
+    private JFXSlider keySlider;
+
     private double x, y;
 
 
     public void initialize() {
         makeTextAreaDragTarget(textArea);
+        keyButton.setOnMouseClicked(event -> keySlider.setVisible(true));
 
 
 
@@ -63,18 +62,12 @@ public class DragFileIntoJavaFX {
 
     }
 
-    public void getKeyFromSlider() {
-        keyRippler.setOnMouseClicked(event -> { KeySlider.setVisible(true);});
-
-
-
-    }
 
     public void makeEncrypt(String textFromFile) {
 
         Cryptoanaliz cryptoanaliz = new Cryptoanaliz(textFromFile.length());
         encrypt.setOnMouseClicked(mouseEvent -> {
-            StringBuilder builder = new StringBuilder(String.valueOf(cryptoanaliz.encrypt((int) KeySlider.getValue(), textFromFile.toCharArray())));
+            StringBuilder builder = new StringBuilder(String.valueOf(cryptoanaliz.encrypt((int) keySlider.getValue(), textFromFile.toCharArray())));
             textArea.setText(builder.toString());
         });
     }
@@ -82,7 +75,7 @@ public class DragFileIntoJavaFX {
     public void makeDecipher(String textFromFile) {
         Cryptoanaliz cryptoanaliz = new Cryptoanaliz(textFromFile.length());
         decipher.setOnMouseClicked(mouseEvent -> {
-            StringBuilder builder = new StringBuilder(String.valueOf(cryptoanaliz.decrypt((int) KeySlider.getValue(), textFromFile.toCharArray())));
+            StringBuilder builder = new StringBuilder(String.valueOf(cryptoanaliz.decrypt((int) keySlider.getValue(), textFromFile.toCharArray())));
             textArea.setText(builder.toString());
         });
     }

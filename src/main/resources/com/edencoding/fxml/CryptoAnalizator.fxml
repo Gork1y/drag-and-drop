@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXRippler?>
 <?import com.jfoenix.controls.JFXSlider?>
 <?import com.jfoenix.controls.JFXTextArea?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -46,19 +44,16 @@
     </Pane>
    <JFXButton fx:id="encrypt" layoutX="22.0" layoutY="350.0" prefHeight="45.0" prefWidth="145.0" text="Зашифровать" textFill="WHITE" />
    <JFXButton fx:id="decipher" layoutX="245.0" layoutY="350.0" prefHeight="45.0" prefWidth="145.0" text="Расшифровать" textFill="WHITE" />
-    <JFXRippler fx:id="keyRipper" layoutX="174.0" layoutY="345.0" maskType="RECT" ripplerFill="#a5b5b9">
-        <Label opacity="0.57" style="-fx-font-size: 14" text="ключ" textFill="aliceblue">
-         <padding>
-            <Insets bottom="3.0" left="15.0" top="-3.0" />
-         </padding></Label>
-   <ImageView>
-    <Image url="@../images/key-64.png" />
-   </ImageView>
-    </JFXRippler>
    <ImageView fitHeight="41.0" fitWidth="32.0" layoutX="355.0" layoutY="46.0" opacity="0.83" pickOnBounds="true" preserveRatio="true" rotate="26.6">
       <image>
          <Image url="@../images/arrow.png" />
       </image>
    </ImageView>
-   <JFXSlider fx:id="KeySlider" layoutX="174.0" layoutY="402.0" max="72.0" prefHeight="14.0" prefWidth="60.0" style="  -jfx-default-thumb: #000000;"  />
+   <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="179.0" layoutY="346.0" pickOnBounds="true" preserveRatio="true">
+       <image>
+           <Image url="@../images/key-64.png" />
+       </image>
+   </ImageView>
+    <JFXButton fx:id="keyButton" layoutX="178.0" layoutY="352.0" opacity="0.69" prefHeight="45.0" prefWidth="60.0" text="Ключ" textFill="WHITE" />
+    <JFXSlider fx:id="keySlider" layoutX="174.0" layoutY="401.0" max="72.0" prefHeight="14.0" prefWidth="65.0" style="  -jfx-default-thumb: #000000;" visible="false" />
 </AnchorPane>
