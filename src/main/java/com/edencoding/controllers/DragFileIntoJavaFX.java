@@ -71,9 +71,10 @@ public class DragFileIntoJavaFX {
     }
 
     public void makeEncrypt(String textFromFile) {
+
         Cryptoanaliz cryptoanaliz = new Cryptoanaliz(textFromFile.length());
         encrypt.setOnMouseClicked(mouseEvent -> {
-            StringBuilder builder = new StringBuilder(String.valueOf(cryptoanaliz.encrypt(1, textFromFile.toCharArray())));
+            StringBuilder builder = new StringBuilder(String.valueOf(cryptoanaliz.encrypt((int) KeySlider.getValue(), textFromFile.toCharArray())));
             textArea.setText(builder.toString());
         });
     }
@@ -81,7 +82,7 @@ public class DragFileIntoJavaFX {
     public void makeDecipher(String textFromFile) {
         Cryptoanaliz cryptoanaliz = new Cryptoanaliz(textFromFile.length());
         decipher.setOnMouseClicked(mouseEvent -> {
-            StringBuilder builder = new StringBuilder(String.valueOf(cryptoanaliz.decrypt(72, textFromFile.toCharArray())));
+            StringBuilder builder = new StringBuilder(String.valueOf(cryptoanaliz.decrypt((int) KeySlider.getValue(), textFromFile.toCharArray())));
             textArea.setText(builder.toString());
         });
     }
