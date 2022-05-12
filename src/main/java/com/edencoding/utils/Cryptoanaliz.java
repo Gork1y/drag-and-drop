@@ -62,6 +62,28 @@ public class Cryptoanaliz {
         }
         return result;
     }
+
+    public static boolean findCorrectVersion (char[] charTemplate){
+        int count = 0;
+        int max = 25;
+        boolean check = false;
+
+        for (char c : charTemplate) {
+
+            // проходимся по массиву с целью выявить наличие пробелов " "
+            if (c == ' ') {
+                // если пробелы есть то увеличиваем счетчик
+                count = count + 1;
+            }
+            if (count >= max) {
+                //writer.write(buffer,0, real);
+                check = true;
+                break;
+            }
+            // если значение счетчика переваливает за 35, то записываем массив в файл
+        }
+        return check;
+    }
 }
 
 // TODO Добавить метод который проверяет зашифрованные значения и выдает их в UI;

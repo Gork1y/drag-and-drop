@@ -41,9 +41,6 @@ public class DragFileIntoJavaFX {
     public void initialize() {
         makeTextAreaDragTarget(textArea);
         keyButton.setOnMouseClicked(event -> keySlider.setVisible(true));
-
-
-
     }
 
     public void init(Stage stage) {
@@ -58,8 +55,6 @@ public class DragFileIntoJavaFX {
 
         btnClose.setOnMouseClicked(mouseEvent -> stage.close());
         btnMinimize.setOnMouseClicked(mouseEvent -> stage.setIconified(true));
-
-
     }
 
 
