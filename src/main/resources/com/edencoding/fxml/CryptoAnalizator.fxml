@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXRippler?>
+<?import com.jfoenix.controls.JFXSlider?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -59,4 +60,5 @@
          <Image url="@../images/arrow.png" />
       </image>
    </ImageView>
+   <JFXSlider fx:id="KeySlider" layoutX="174.0" layoutY="402.0" max="72.0" prefHeight="14.0" prefWidth="60.0" style="  -jfx-default-thumb: #000000;"  />
 </AnchorPane>

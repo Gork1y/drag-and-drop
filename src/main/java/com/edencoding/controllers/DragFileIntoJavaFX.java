@@ -1,34 +1,23 @@
 package com.edencoding.controllers;
 
 import com.edencoding.utils.Cryptoanaliz;
-import com.jfoenix.controls.JFXHamburger;
-import com.jfoenix.controls.JFXListView;
-import com.jfoenix.controls.JFXPopup;
 import com.jfoenix.controls.JFXRippler;
+import com.jfoenix.controls.JFXSlider;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.IOException;
 import java.nio.file.Files;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Stream;
 
@@ -46,11 +35,14 @@ public class DragFileIntoJavaFX {
     private ImageView btnMinimize, btnClose;
     @FXML
     private Button encrypt, decipher;
+    @FXML
+    private JFXSlider KeySlider;
     private double x, y;
 
 
     public void initialize() {
         makeTextAreaDragTarget(textArea);
+
 
 
     }
@@ -67,35 +59,31 @@ public class DragFileIntoJavaFX {
 
         btnClose.setOnMouseClicked(mouseEvent -> stage.close());
         btnMinimize.setOnMouseClicked(mouseEvent -> stage.setIconified(true));
+
+
     }
 
-    public void getKeyIntextArea(int keyFromUser) {
-        keyRippler.setOnMouseClicked(mouseEvent -> {
+    public void getKeyFromSlider() {
+        keyRippler.setOnMouseClicked(event -> { KeySlider.setVisible(true);});
 
-
-            System.out.println(keyFromUser);
-        });
 
 
     }
 
     public void makeEncrypt(String textFromFile) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите ключ шифрования: ");
-        int key = scanner.nextInt();
         Cryptoanaliz cryptoanaliz = new Cryptoanaliz(textFromFile.length());
         encrypt.setOnMouseClicked(mouseEvent -> {
-            StringBuilder builder = new StringBuilder();
-            for (char c : cryptoanaliz.encrypt(1,textFromFile.toCharArray())) {
-                char temp = (char) (c + 1);
-                builder.append(temp);
-            }
+            StringBuilder builder = new StringBuilder(String.valueOf(cryptoanaliz.encrypt(1, textFromFile.toCharArray())));
             textArea.setText(builder.toString());
         });
     }
 
     public void makeDecipher(String textFromFile) {
-        decipher.setOnMouseClicked(mouseEvent -> textArea.setText("РАСШИФРОВАНО"));
+        Cryptoanaliz cryptoanaliz = new Cryptoanaliz(textFromFile.length());
+        decipher.setOnMouseClicked(mouseEvent -> {
+            StringBuilder builder = new StringBuilder(String.valueOf(cryptoanaliz.decrypt(72, textFromFile.toCharArray())));
+            textArea.setText(builder.toString());
+        });
     }
 
     private void makeTextAreaDragTarget(Node node) {
@@ -120,6 +108,7 @@ public class DragFileIntoJavaFX {
 
             dropInstructions.setVisible(false);
         });
+
     }
 
     private Task<String> fileLoaderTask(File fileToLoad) {
@@ -155,7 +144,6 @@ public class DragFileIntoJavaFX {
                 textArea.setText(loadFileTask.get());
                 makeEncrypt(textArea.getText());
                 makeDecipher(textArea.getText());
-                getKeyIntextArea(Integer.parseInt(textArea.getText()));
             } catch (InterruptedException | ExecutionException e) {
                 textArea.setText("Не могу загрузить файл:\n " + fileToLoad.getAbsolutePath());
             }

@@ -27,6 +27,7 @@ public class App extends Application {
         stage.setResizable(false);
         stage.show();
         ((DragFileIntoJavaFX) fxmlLoader.getController()).init(stage);
+
     }
 
     public static void main(String[] args) {
