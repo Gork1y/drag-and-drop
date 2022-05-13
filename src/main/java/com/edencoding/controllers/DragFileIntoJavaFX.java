@@ -35,7 +35,8 @@ public class DragFileIntoJavaFX {
     @FXML
     private JFXSlider keySlider;
 
-    private double x, y;
+    private double x;
+    private double y;
 
 
     public void initialize() {
@@ -61,32 +62,20 @@ public class DragFileIntoJavaFX {
     public void makeEncrypt(String textFromFile) {
 
         Cryptoanaliz cryptoanaliz = new Cryptoanaliz(textFromFile.length());
-        encrypt.setOnMouseClicked(mouseEvent -> {
-            StringBuilder builder = new StringBuilder(String.valueOf(cryptoanaliz.encrypt((int) keySlider.getValue(), textFromFile.toCharArray())));
-            textArea.setText(builder.toString());
-        });
+        encrypt.setOnMouseClicked(mouseEvent -> textArea.setText(String.valueOf(cryptoanaliz.encrypt((int) keySlider.getValue(), textFromFile.toCharArray()))));
     }
 
     public void makeDecipher(String textFromFile) {
         Cryptoanaliz cryptoanaliz = new Cryptoanaliz(textFromFile.length());
-        decipher.setOnMouseClicked(mouseEvent -> {
-            StringBuilder builder = new StringBuilder(String.valueOf(cryptoanaliz.decrypt((int) keySlider.getValue(), textFromFile.toCharArray())));
-            textArea.setText(builder.toString());
-        });
+        decipher.setOnMouseClicked(mouseEvent -> textArea.setText(String.valueOf(cryptoanaliz.decrypt((int) keySlider.getValue(), textFromFile.toCharArray()))));
     }
 
     private void makeTextAreaDragTarget(Node node) {
-        node.setOnDragOver(event -> {
-            event.acceptTransferModes(TransferMode.COPY);
-        });
+        node.setOnDragOver(event -> event.acceptTransferModes(TransferMode.COPY));
 
-        node.setOnDragExited(event -> {
-            dropInstructions.setVisible(false);
-        });
+        node.setOnDragExited(event -> dropInstructions.setVisible(false));
 
-        node.setOnDragEntered(event -> {
-            dropInstructions.setVisible(true);
-        });
+        node.setOnDragEntered(event -> dropInstructions.setVisible(true));
 
         node.setOnDragDropped(event -> {
             Dragboard db = event.getDragboard();
@@ -139,9 +128,7 @@ public class DragFileIntoJavaFX {
         });
 
         //If unsuccessful, set text area with error message and status message to failed
-        loadFileTask.setOnFailed(workerStateEvent -> {
-            textArea.setText("Не могу загрузить файл:\n " + fileToLoad.getAbsolutePath());
-        });
+        loadFileTask.setOnFailed(workerStateEvent -> textArea.setText("Не могу загрузить файл:\n " + fileToLoad.getAbsolutePath()));
 
         return loadFileTask;
     }
