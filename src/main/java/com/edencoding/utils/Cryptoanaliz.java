@@ -1,6 +1,5 @@
 package com.edencoding.utils;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -62,8 +61,16 @@ public class Cryptoanaliz {
         }
         return result;
     }
-
+    public int cikl() {
+        int i1 = 0;
+        for (int i = 0; i < 73; i++) {
+            i1 = i;
+            return i1;
+        }
+        return i1;
+    }
     public static boolean findCorrectVersion (char[] charTemplate){
+
         int count = 0;
         int max = 25;
         boolean check = false;

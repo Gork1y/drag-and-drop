@@ -42,6 +42,7 @@ public class DragFileIntoJavaFX {
     public void initialize() {
         makeTextAreaDragTarget(textArea);
         keyButton.setOnMouseClicked(event -> keySlider.setVisible(true));
+        keySlider.setOnMouseClicked(event -> keySlider.setVisible(false));
     }
 
     public void init(Stage stage) {
@@ -67,7 +68,7 @@ public class DragFileIntoJavaFX {
 
     public void makeDecipher(String textFromFile) {
         Cryptoanaliz cryptoanaliz = new Cryptoanaliz(textFromFile.length());
-        decipher.setOnMouseClicked(mouseEvent -> textArea.setText(String.valueOf(cryptoanaliz.decrypt((int) keySlider.getValue(), textFromFile.toCharArray()))));
+        decipher.setOnMouseClicked(mouseEvent -> textArea.setText(String.valueOf(cryptoanaliz.decrypt( (int) keySlider.getValue(), textFromFile.toCharArray()))));
     }
 
     private void makeTextAreaDragTarget(Node node) {
