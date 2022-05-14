@@ -68,7 +68,13 @@ public class DragFileIntoJavaFX {
 
     public void makeDecipher(String textFromFile) {
         Cryptoanaliz cryptoanaliz = new Cryptoanaliz(textFromFile.length());
-        decipher.setOnMouseClicked(mouseEvent -> textArea.setText(String.valueOf(cryptoanaliz.decrypt( (int) keySlider.getValue(), textFromFile.toCharArray()))));
+        decipher.setOnMouseClicked(mouseEvent -> textArea.setText(String.valueOf(cryptoanaliz.decrypt((int) keySlider.getValue(), textFromFile.toCharArray()))));
+    }
+
+    public boolean findCorrectVersion2(String textFromFile) {
+        Cryptoanaliz cryptoanaliz = new Cryptoanaliz(textFromFile.length());
+        return cryptoanaliz.findCorrectVersion(textFromFile.toCharArray());
+
     }
 
     private void makeTextAreaDragTarget(Node node) {
@@ -120,9 +126,21 @@ public class DragFileIntoJavaFX {
         //If successful, update the text area, display a success message and store the loaded file reference
         loadFileTask.setOnSucceeded(workerStateEvent -> {
             try {
+
                 textArea.setText(loadFileTask.get());
                 makeEncrypt(textArea.getText());
-                makeDecipher(textArea.getText());
+                //_______________________________________
+
+                for (int i = 0; i < 73; i++) { // ЦИКЛ ДО 72 ЭЛЕМЕНТОВ ПОТОМУ ЧТО ИХ 72)))
+                    makeDecipher(textArea.getText());
+                    boolean check = findCorrectVersion2(textArea.getText());
+                    if (check) {
+                        textArea.setText("какойто текст который мы расшифровали"); // TODO сделать по человечески!))))
+                        break;
+                    }
+                }
+
+
             } catch (InterruptedException | ExecutionException e) {
                 textArea.setText("Не могу загрузить файл:\n " + fileToLoad.getAbsolutePath());
             }
